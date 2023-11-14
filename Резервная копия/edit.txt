@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Настройки доп.информации проекта
+{% endblock %}
+
+
+{% block body %}
+<form  method="post">
+    <div class="conteiner mt-5">
+        <input type="text" name="item_name" id="item_name" class="form-control" placeholder="{{project[0]}}" required><br> 
+        <input type="text" name="point_value" id="point_value" class="form-control" placeholder="{{project[1]}}" required><br>
+    </div>
+    <input type="submit" class="btn btn-success"  value="сохранить"><br>
+</form>
+{% endblock %}

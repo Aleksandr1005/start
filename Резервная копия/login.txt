@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Личный кабинет
+{% endblock %}
+{% block body %}
+{% for msg in get_flashed_messages() %}
+<div class="flash">{{msg}}</div>
+{% endfor %}
+<form method="post" action="" name="signin-form">
+    <div class="form-element">
+      <input type="text" name="username" id="username" class="form-control" placeholder="Введите логин"><br>
+    </div>
+    <div class="form-element">
+      <input type="password" name="password" id="password" class="form-control" placeholder="Введите пароль"></textarea><br>
+    </div>
+    <p><input type="checkbox" name="remainme" /> Запомни меня
+    <button type="submit" name="login" value="login">Войти</button>
+  </form>
+Если аккаунт не зарегистрирован -
+<a class="me-3 py-2 text-dark text-decoration-none" href="/register-account">Регистрация</a>
+{% endblock %}

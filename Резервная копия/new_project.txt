@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Создание нового исследования
+{% endblock %}
+
+
+{% block body %}
+<div class="conteiner mt-5">
+    <h1>Создание проекта</h1>
+    <form method="post">
+        <input type="text" name="title_project" id="title_project" class="form-control" placeholder="Название исследования"><br>
+        <input type="text" name="purpose_project" id="purpose_project" class="form-control" placeholder="Цель исследования:"><br>
+        <input type="submit" class="btn btn-success" value="Создать"><br>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<!-- <select name="purpose-project" id="purpose-project">
+            <option></option>
+            <option>Практика</option>
+            <option>Исследование</option>
+            <option>Другое</option>
+        </select> -->

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Редактирование проекта
+{% endblock %}
+{% block body %}
+<div>
+    <h1>Проект</h1>
+    <table class="date">
+    {% for i in project  %}
+        {% if i[0] != 'Запись' and i[0] != 'Время создания проекта' and i[0] != 'Кем создан проект' and i[0] != 'Время последнего редактирования' and i[0] != 'Кем редактировано' and i[0] != 'Название' %}        
+            <tr>
+                <th style="font-weight: 900; font-size: 20px; text-align: left"> {{ i[0] }}: </th>
+                <td style="background: #fff; border-radius: 5px; padding: 5px; margin-left: 50px; text-align: left;" > {{ i[1] }}</td>
+                <td>
+                    <a class="editpr" href="/project/{{ project[loop.index - 1] }}/{{project_name}}/edit">Редактировать</a>
+                    <a class="deletepr" href="/delete_detail_project/{{project_name}}/{{ i[0] }}/{{ i [1] }}">Удалить</a>
+                </td>
+            </tr> 
+        {% endif %}
+    {% endfor %}
+    </table>
+</div>
+<br>
+<a class="edit" href="/new-project/{{project_name}}">Добавить поле</a>
+<a class="edit"  href="/new-record/{{project_name}}">Добавить запись</a><br><br>
+<button class="back" onclick="goBack()">Назад</button>
+{% endblock %}

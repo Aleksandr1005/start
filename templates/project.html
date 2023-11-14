@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Все проекты
+{% endblock %}
+{% block body %}
+<div>
+    <h1>Проекты</h1>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Поиск по таблице">
+    <table id="myTable">
+        <tr>
+            <th><a>Номер</a></th>
+            <th><a>Название</a></th>
+            <th><a>Описание</a></th>
+            <th><a>Статус</a></th>
+            <th><a>Время создания</a></th>
+            <th><a>Кем создан</a></th>
+            <th><a>Время редактирования</a></th>
+            <th><a>Кем редактирован</a></th>
+        </tr>
+        {% for key, value in project_list.items() %}
+            <tr>
+                <td><a>{{ key + 1 }}</a></td>
+                <td style="max-width: 110px; word-wrap: break-word;"><a href="/project/view/{{ value[0] }}">{{ value[0] }}</a></td>
+                <td style="max-width: 110px; word-wrap: break-word;"><a>{{ value[1] }}</a></td>
+                <td><a>{{ value[2] }}</a></td>
+                <td><a>{{ value[3] }}</a></td>
+                <td><a>{{ value[4] }}</a></td>
+                <td><a>{{ value[5] }}</a></td>
+                <td><a>{{ value[6] }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

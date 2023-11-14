@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+    <script>
+        function myFunction(){
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput")
+            filter = input.value.toUpperCase()
+            table = document.getElementById("myTable")
+            tr = table.getElementsByTagName("tr")
+
+            for (i = 1; i < tr.length; i++) {
+                for (j = 1; j < 8; j++) {
+                    td = tr[i].getElementsByTagName("td")[j];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        }
+                        else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>
+        function confirmDelete() {
+            if (confirm("Вы действильно хотите удалить исследование?")) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+    <header>
+        <img src="{{url_for('static', filename='css/images/logo5.jpg')}}" width="110" height="110">
+        <h1 class="logo">Реестр Клинических Заболеваний</h1>
+        <nav>
+            <ul>
+                <li><a href="/">ГЛАВНАЯ</a></li>
+                <li><a href="/project">ВСЕ ПРОЕКТЫ</a></li>
+                {% if role == 'Админ' or role == 'Создатель проектов' %}
+                    <li><a href="/new-project">НОВЫЙ ПРОЕКТ</a></li>
+                {% endif %}
+                <li> <a style="width: 115px; text-align: center;"> &#9776;</a>
+                    <ul>
+                        {% if role != 'Гость' %}
+                            <li> <a style="font-size:  18px;" href="/my-project">Мои проекты</a></li>
+                        {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <li><a style="font-size: 18px" href="/logout">Выход из профиля</a></li>
+                        {% else %}
+                            <a style="font-size: 18px" href="/login">Вход</a></li>
+                        {% endif %}
+                        {% if role == 'Админ' %}
+                            <li><a style="font-size: 18px" href="/settings">Настройки</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="two-br">
+        {% block body %} {% endblock %}
+    </div>
+    <footer>
+        Разработчики: Быканов Вячеслав, Кондренко Александр <br>
+    </footer>
+</body>
+</html>

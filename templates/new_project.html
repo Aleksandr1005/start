@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Создание нового исследования
+{% endblock %}
+
+
+{% block body %}
+<div class="reg" style="color: #d5d5d5;">
+    <h1>Создание проекта</h1>
+    <form method="post">
+        {% for msg in get_flashed_messages() %}
+            <div class="flash">{{msg}}</div>
+        {% endfor %}
+        Название исследования
+        <input type="text" name="title_project" id="title_project"><br>
+        Цель исследования
+        <input type="text" name="purpose_project" id="purpose_project"><br>
+        <input type="submit" class="rega" value="Создать"><br>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<!-- <select name="purpose-project" id="purpose-project">
+            <option></option>
+            <option>Практика</option>
+            <option>Исследование</option>
+            <option>Другое</option>
+        </select> -->

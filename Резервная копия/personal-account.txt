@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Личный кабинет
+{% endblock %}
+{% block body %}
+    <p><a href="/logout">Выйти их профиля</a>
+    
+{% endblock %}

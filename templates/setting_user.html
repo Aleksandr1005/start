@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Настройки пользователя
+{% endblock %}
+
+
+{% block body %}
+<div>
+    <form method="post">
+        <h1>Настройки пользователя: {{user_list[1]}}</h1>
+        <table class="date">
+            <tr>
+                <th class="date-th"></th> <td>Старые данные</td> <td>Новые данные</td>
+            </tr>
+            <tr>
+                <th class="date-th"> Логин </th> <td> {{ user_list[1] }}</td> <td><input type="text" name="new_login" id="new_login" value="{{ user_list[1] }}" required> </td>
+            </tr>
+            <tr>
+                <th class="date-th"> Почта </th> <td> {{ user_list[2] }}</td><td><input type="text" name="new_email" id="new_email" value="{{ user_list[2] }}" required></td>
+            </tr>
+            <tr>
+                <th class="date-th"> Роль </th> <td> {{ user_list[4] }}</td>
+                <td>
+                    <select name="select_role" id="select_role">
+                        <option>Админ</option>
+                        <option>Гость</option>
+                        <option>Создатель проектов</option>
+                        <option>Редактор проектов</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" class="rega" value="Сохранить"><br>
+    </form>
+</div>
+{% endblock %}

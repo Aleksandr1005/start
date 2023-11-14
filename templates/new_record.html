@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление новой записи
+{% endblock %}
+{% block body %}
+<form  method="post">
+    <div>
+        <h1>Проект</h1>
+        <table class="date">
+            {% for i in project  %}
+                {% if i[0] != 'Запись' and i[0] != 'Цель исследования' and i[0] != 'Статус' and i[0] != 'Время создания проекта' and i[0] != 'Кем создан проект' and i[0] != 'Время последнего редактирования' and i[0] != 'Кем редактировано' and i[0] != 'Название' %}
+                    <tr>
+                        <th class="date-th"> {{ i[0] }} </th> <td> {{ i[1] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}     
+        </table>
+        Добавление записи<br>
+        <textarea name="new-record" id="new-record" rows="10" cols="50"></textarea><br>
+        <input type="submit" class="save" value="Сохранить">
+    </div>
+</form>
+{% endblock %}

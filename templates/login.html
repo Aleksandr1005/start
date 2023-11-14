@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Вход в личный кабинет
+{% endblock %}
+
+{% block body %}
+<div class="reg" style="color: #d5d5d5">
+    <h1>Вход в личный кабинет</h1>
+    {% for msg in get_flashed_messages() %}
+        <div class="flash">{{ msg }}</div>
+    {% endfor %}
+    <form method="post" name="signin-form">
+        <a style="font-size: 22px;">Логин</a>
+        <input type="text" name="username" id="username" class="form-control"><br>
+        <a style="font-size: 22px;">Пароль</a>
+        <input type="password" name="password" id="password" class="form-control"><br>
+        <input type="checkbox" name="remainme" id="remainme" class="custom-checkbox" /> 
+        <label for="remainme">Запомни меня</label>
+        <input type="submit" class="rega" value="Войти"><br>
+    </form>
+    <div class="two-br">
+        <a class="register" href="/register-account">Регистрация</a>
+        <a href="/password">Забыли пароль</a>
+    </div>
+</div>
+{% endblock %}

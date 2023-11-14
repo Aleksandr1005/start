@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Админ-Настройки
+{% endblock %}
+{% block body %}
+<div>
+    <h1>Пользователи</h1>
+    <table>
+        <tr>
+            <th><a>id</a></th>
+            <th><a>Логин</a></th>
+            <th><a>Почта</a></th>
+            <th><a>Роль</a></th>
+        </tr>
+        {% for value in account_list %}
+            <tr>
+                <td><a>{{ value[0] }}</a></td>
+                <td><a>{{ value[1] }}</a></td>
+                <td><a>{{ value[2] }}</a></td>
+                <td><a>{{ value[4] }}</a></td>
+                <td>
+                    <a class="editpr" href="/settings/{{value[1]}}">Редактировать</a>
+                    <a class="deletepr" href="/delete-user/{{value[1]}}">Удалить</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

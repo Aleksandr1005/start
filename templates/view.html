@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Просмотр проекта
+{% endblock %}
+{% block body %}
+<div>
+    <h1>Проект</h1>
+    <table class="date">
+        {% for i in project  %}
+            {% if i[0] != 'Запись' %}
+                <tr> 
+                    <th class="date-th">{{ i[0] }}</th> <td>{{ i[1] }}</td> 
+                </tr>
+            {% endif %}
+        {% endfor %}  
+    </table>
+    <br>
+    {% for i in records %}
+        Запись {{ loop.index }}: <br>
+        <textarea rows="4" cols="50" readonly>{{ i[1] }}</textarea><br>
+    {% endfor %}  
+    {% if role == 'Редактор проектов' or role == 'Админ'%}
+        <div class="two-br">
+            <a class="edit" href="/project/{{project_name}}">Редактировать</a>
+            <a class="delete" href="/delete_project/{{project_name}}" onclick="return confirmDelete()">Удалить</a>
+        </div>
+    {% endif %}
+    <button class="back" onclick="goBack()">Назад</button>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Настройки нового проекта
+{% endblock %}
+
+
+{% block body %}
+<h1>Создание проекта</h1>
+{% for key, value in project %}
+    <h2> {{ key }} {{ value }} </h2>
+{% endfor %}
+<form  method="post">
+    <div class="conteiner mt-5">
+        <input type="text" name="item_name" id="item_name" class="form-control" placeholder="Название пункта"><br> 
+        <input type="text" name="point_value" id="point_value" class="form-control" placeholder="Данные пункта"><br>
+    </div>
+    <input type="submit" class="btn btn-success" value="Добавить и сохранить"><br>
+</form>
+<a href="/home"><button>Завершить создание проекта</button></a>
+{% endblock %}

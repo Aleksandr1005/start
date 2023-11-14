@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Проекты
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <h1>Проекты</h1>
+    {% for key, value in project_list.items() %}
+        <div>
+            <a>{{key + 1}}</a><a href="/project/view/{{ value[0] }}">{{ value[0] }}</a> <a> {{ value[1] }} {{ value[2] }} | Время: {{ value[3] }} | Пользователь: {{ value[4] }}</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

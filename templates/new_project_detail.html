@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Настройки нового проекта
+{% endblock %}
+
+
+{% block body %}
+<div>
+    <h1>Создание проекта</h1>
+    <form  method="post">
+        <table class="date">
+            {% for key, value in project %}
+                <tr>
+                    <th style="font-weight: 900; font-size: 20px;"> {{ key }}:</th><td> {{ value }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td><input type="text" name="item_name" id="item_name" class="form-control" placeholder="Название пункта" required></td> 
+                <td><input type="text" name="point_value" id="point_value" class="form-control" placeholder="Данные пункта" required></td>
+            </tr>    
+        </table>
+        <input type="submit" class="add_new" value="Добавить и сохранить">
+        <a class="end" href="/home">Завершить создание проекта</a>
+    </form>
+</div>
+{% endblock %}

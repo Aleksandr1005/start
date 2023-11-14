@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Проекты
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <h1>Проект</h1>
+        <div>
+            {% for i in project  %}
+                <h2> {{ i[0] }} {{ i[1] }}</h2>
+            {% endfor %}
+            <a href="/project/{{project_name}}">Редактировать</a>
+            <a href="/delete_project/{{project_name}}">Удалить</a>
+        </div>
+</div>
+{% endblock %}
